@@ -9,7 +9,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_compile_options(-Wall -Wextra -Wpedantic -O2)
+add_compile_options(-Wall -Wextra -Wpedantic)
 
 add_executable(pc_example examples/main.cpp)
 
@@ -22,3 +22,6 @@ target_include_directories(parallel_compute PUBLIC
 )
 
 target_link_libraries(pc_example PRIVATE parallel_compute)
+
+add_executable(reduce_benchmark benchmarks/reduce_benchmark.cpp)
+target_link_libraries(reduce_benchmark PRIVATE parallel_compute)
